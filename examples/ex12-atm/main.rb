@@ -18,10 +18,13 @@ def main
     loop do
         puts 'Введите команду:'
         cmd_id = gets.to_i
+        success = 1
         for cmd in commands
-            if cmd.process(cmd_id, account, atm_balance)
+            success *= cmd.process(cmd_id, account, atm_balance)
+        end
 
-            end
+        if success != 1
+            puts "Вы ввели не ту команду."
         end
     end
 end

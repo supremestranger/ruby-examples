@@ -15,10 +15,10 @@ class BalanceCmd < Cmd
     def process(id, account, atm_balance)
         if id == @cmd_id
             puts "У вас #{account} рублей"
-            return true
+            return 1
         end
 
-        return false
+        return -1
     end
 end
 
@@ -29,10 +29,10 @@ class AddCmd < Cmd
             add = gets.chomp
             atm_balance[add] += 1
             account += add.to_i
-            return true
+            return 1
         end
 
-        return false
+        return -1
     end
 end
 
@@ -45,7 +45,7 @@ class WithdrawCmd < Cmd
 
             if elapsed > account
                 puts 'Недостаточно денег на счету!'
-                return true
+                return 1
             end
 
             hundreds = [elapsed / 100, atm_balance['100']].min
@@ -70,16 +70,16 @@ class WithdrawCmd < Cmd
 
             if elapsed != 0
                 puts 'Не удается снять такую сумму.'
-                return true
+                return 1
             end
 
             account -= add
             puts "Успешно снято #{add} рублей!"
             puts atm_balance
 
-            return true
+            return 1
         end
 
-        return false
+        return -1
     end
 end
