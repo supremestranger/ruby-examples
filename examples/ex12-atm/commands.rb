@@ -63,7 +63,7 @@ class WithdrawCmd < Cmd
             add += ts * 10
             elapsed -= ts * 10
 
-            fvs = [elapsed / 50, atm_balance['5']].min
+            fvs = [elapsed / 5, atm_balance['5']].min
             atm_balance['5'] -= fvs
             add += fvs * 5
             elapsed -= fvs * 5
