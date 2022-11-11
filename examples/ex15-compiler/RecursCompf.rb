@@ -3,7 +3,6 @@
 class RecursComp
   Parentheses = ['(', '[', '{']
   HighPriorityOperators = ['*', '/', '%']
-  Comments = ["//", "/*", "*/"]
 
   def compile(str)
     @str,@index = preprocess(str),0
